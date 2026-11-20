@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>11/21 勉強会 質問集</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#f1f7fb; --surface:#ffffff; --soft:#eaf3fa; --pink-soft:#fbeef1;
+  --navy:#26405f; --navy-deep:#1d3149; --pink:#cf8f9c; --pink-deep:#b06f7d; --blue:#7fb0d2;
+  --text:#4a4446; --muted:#7b7275; --line:#d9e5ee;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:"Yu Gothic","YuGothic","游ゴシック体","Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+  font-weight:500;font-size:16px;line-height:1.8;letter-spacing:.01em}
+.wrap{max-width:780px;margin:0 auto;padding-block:28px 64px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{color:var(--navy-deep);line-height:1.45;text-wrap:balance;margin:0}
+h1{font-size:1.75rem;font-weight:700;letter-spacing:.02em}
+h2{font-size:1.3rem;font-weight:700}
+h3{font-size:1.08rem;font-weight:700}
+p{margin:0}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--pink-deep);font-weight:700}
+.head{display:grid;gap:10px;padding-bottom:20px;border-bottom:2px solid var(--navy)}
+.sub{color:var(--navy);font-weight:700}
+.meta{color:var(--muted);font-size:.86rem}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:20px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;min-width:0}
+.stat b{display:block;font-size:1.6rem;color:var(--navy-deep);line-height:1.2;font-weight:700}
+.stat b small{font-size:.9rem;margin-left:2px}
+.stat span{display:block;font-size:.8rem;color:var(--muted);line-height:1.5}
+.note{margin-top:14px;font-size:.84rem;color:var(--muted)}
+nav.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+nav.toc a{display:inline-block;padding:6px 14px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--navy);text-decoration:none;font-size:.88rem;font-weight:700}
+section{margin-top:40px;display:grid;gap:16px}
+.lead{font-size:.93rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px;display:grid;gap:12px;min-width:0}
+.card.to-bl{border-top:4px solid var(--pink)}
+.card.to-mk{border-top:4px solid var(--navy)}
+.card-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
+.num{font-size:.8rem;color:var(--muted);font-weight:700}
+.who{font-size:.76rem;font-weight:700;padding:2px 10px;border-radius:999px;background:var(--soft);color:var(--navy)}
+.who.bl{background:var(--pink-soft);color:var(--pink-deep)}
+.count{font-size:.86rem;color:var(--navy);font-weight:700}
+.count em{font-style:normal;color:var(--pink-deep)}
+ol.qs,ul.qs{margin:0;padding-left:1.4em;display:grid;gap:6px}
+ol.qs li::marker,ul.qs li::marker{color:var(--blue);font-weight:700}
+.q{color:var(--text)}
+.tag{display:inline-block;font-size:.7rem;font-weight:700;line-height:1.6;padding:0 8px;border-radius:999px;margin-left:6px;vertical-align:2px;white-space:nowrap}
+.tag.on{background:var(--pink-soft);color:var(--pink-deep);border:1px solid #efd3d9}
+.tag.src{background:var(--soft);color:var(--navy)}
+.tag.read{background:#f3f1f2;color:var(--muted)}
+.voices{display:grid;gap:8px;border-left:3px solid var(--blue);padding-left:12px}
+.voices p{font-size:.88rem;color:var(--text)}
+.voices .vl{font-size:.74rem;color:var(--muted);letter-spacing:.08em;font-weight:700}
+.sublabel{font-size:.8rem;font-weight:700;color:var(--muted);letter-spacing:.06em}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px}
+details summary{cursor:pointer;font-weight:700;color:var(--navy)}
+details .ans{display:grid;gap:10px;margin-top:10px}
+details .ans dt{font-size:.78rem;font-weight:700;color:var(--muted)}
+details .ans dd{margin:0;font-size:.92rem;white-space:pre-wrap}
+.table-wrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;min-width:460px;font-size:.9rem}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
+th{font-size:.76rem;color:var(--muted);font-weight:700;background:var(--soft)}
+td.n{text-align:right;font-variant-numeric:tabular-nums;font-weight:700;color:var(--navy-deep)}
+tr:last-child td{border-bottom:0}
+td a{color:var(--navy);text-decoration:none;font-weight:700}
+.foot{margin-top:44px;font-size:.82rem;color:var(--muted);display:grid;gap:6px;border-top:1px solid var(--line);padding-top:16px}
+.foot ul{margin:0;padding-left:1.2em}
+@media (max-width:560px){
+  h1{font-size:1.45rem}
+  .stats{grid-template-columns:1fr 1fr}
+  .stats .stat:last-child{grid-column:1 / -1}
+  .card{padding:16px 14px 14px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="head">
+  <p class="eyebrow">BUCKET LIST × Re:che</p>
+  <h1>11/21 勉強会 質問集</h1>
+  <p class="sub">11/21（土）20:00〜 スクール説明会＆公開添削勉強会</p>
+  <p class="meta">11/20（金）17:00時点・BUCKET LIST×MeroneのLINE（プロライン）に届いた回答から作成</p>
+</header>
+
+<div class="stats">
+  <div class="stat"><b>66<small>人</small></b><span>11/21 参加予定</span></div>
+  <div class="stat"><b>3<small>人</small></b><span>意向アンケートに回答<br>（案内したのは9人）</span></div>
+  <div class="stat"><b>93<small>人</small></b><span>これまで質問欄に書いた人<br>（うち参加予定 12人）</span></div>
+</div>
+<p class="note">このページには、お客さまのお名前は載せていません。質問の言い回しは、実際の文面を短く整えたものです。<span class="tag on">参加予定</span> は、11/21に参加予定の方も同じことを書いている印です。</p>
+
+<nav class="toc" aria-label="目次">
+  <a href="#part1">1. 参加予定の方からの質問</a>
+  <a href="#part2">2. 当日出そうな質問集</a>
+</nav>
+
+<!-- ============ 1 ============ -->
+<section id="part1">
+  <h2>1. 参加予定の方から届いた「当日聞きたいこと」</h2>
+  <p class="lead">4本の動画を見終えた参加予定の方に「意向アンケート」をお送りし、3人から回答がありました。アンケートは「BUCKET LISTのお二人と森川に聞いてみたいこと」を1つの欄で聞いているため、中身で振り分けています。3人とも、いまのお気持ちは「気になっているけれど、迷っている」でした。</p>
+
+  <div class="card to-bl">
+    <div class="card-h"><span class="num">1-1</span><h3>BUCKET LISTのお二人へ</h3><span class="who bl">お二人</span></div>
+    <ol class="qs">
+      <li><span class="q">Keiさんが実際にやってみた感想を聞きたい</span><span class="tag src">アンケート</span></li>
+      <li><span class="q">「お二人も出られると知って、思いきって応募しました！」「目標はケイちゃんのような美しい人になることです」「オーストラリアも行ってみたいと思いました」</span><span class="tag src">メッセージ</span></li>
+      <li><span class="q">「りょーすけさん、けいさんの様に場所を選ばず働ける働き方をとても魅力に思っており」</span><span class="tag src">アンケート</span></li>
+    </ol>
+  </div>
+
+  <div class="card to-mk">
+    <div class="card-h"><span class="num">1-2</span><h3>森川へ（スクールのこと）</h3><span class="who">森川</span></div>
+    <ol class="qs">
+      <li><span class="q">「費用はこれから物販で得られる利益から払っていく形にでき、サポートにも期限がない」という内容を、詳しく知りたい</span></li>
+      <li><span class="q">仕事と子育てをしながら、入会金分を取り戻せるだけの利益を出せるか不安</span></li>
+      <li><span class="q">入会金・初期費用の具体的な金額</span></li>
+      <li><span class="q">ラクマなど、メルカリ以外のアプリにも出品していいか</span></li>
+      <li><span class="q">仕入れのタイミング・ノルマ・決まった規程はあるか</span></li>
+      <li><span class="q">子どもを寝かしつけてからの作業になる。一緒に寝てしまう日もあるが、それでもできるか</span></li>
+    </ol>
+  </div>
+
+  <p class="sublabel">回答の原文（3人）</p>
+  <details>
+    <summary>回答1　11/18（水）22:36</summary>
+    <dl class="ans">
+      <dt>スクールについて、いまのお気持ち</dt><dd>気になっているけれど、迷っている</dd>
+      <dt>スクールについて、気になっていること・ご相談したいこと</dt><dd>仕入れのタイミング、ノルマ、決まった規程はあるのか気になりました。</dd>
+      <dt>当日、BUCKET LISTのお二人と森川に聞いてみたいこと</dt><dd>説明の日程を決められずに悩んでいましたが、お二人も出られると知って、思いきって応募しました！
+メルカリは以前から不用品を売っていて経験はあるのですが、ラクマなどの他アプリへでも出品してもいいのでしょうか？
+憧れの在宅ワークへの一歩が販売というのはドキドキしますね。
+子供を寝かしつけてからの作業をと思いますが、朝から外遊びの昼寝無しでも目がかたい、来年一年生の息子がいて一緒に寝てしまうこともあり、仕事ができるか不安です。が、自分の車やハワイへ行きたいのでコツコツと…ですね！
+目標はケイちゃんのような美しい人になることです。そしてオーストラリアも行ってみたいと思いました！
+すみません、聞きたいことというよりメッセージになりましたが、時間を設けてくださいましてありがとうございます。</dd>
+    </dl>
+  </details>
+  <details>
+    <summary>回答2　11/18（水）23:46</summary>
+    <dl class="ans">
+      <dt>スクールについて、いまのお気持ち</dt><dd>気になっているけれど、迷っている</dd>
+      <dt>スクールについて、気になっていること・ご相談したいこと</dt><dd>入会金が思いのほか高く、やりたい気持ちはあるのですが、金額的に厳しく迷っております。
+子供が今1歳8ヶ月でお金がかかる時期でもあるし、仕事と子育てをしながら、入会金分を0に出来る稼ぎが出来るか不安です。</dd>
+      <dt>当日、BUCKET LISTのお二人と森川に聞いてみたいこと</dt><dd>「費用はこれから物販で得られる利益から払っていく形にでき、サポートにも期限がない」との事でしたので、この内容を詳しく知りたいです。
+子供が1歳8ヶ月と小さいので仕事と育児で毎日バタバタしている中で、りょーすけさん、けいさんの様に場所を選ばず働ける働き方をとても魅力に思っており、かつ動画を4本見て、やってみたい！！！と思い即、夫に相談したところ、やって見なよ！と言ってもらったのですが、入会金を聞いて、現実的に初期投資でその金額は難しいと一度諦めました。しかし物販で得られる収益から払えるとの話を聞いて、諦めたくないのでもう少し詳しく聞かせていただきたいなと思っております。当日はよろしくお願い致します。</dd>
+    </dl>
+  </details>
+  <details>
+    <summary>回答3　11/20（金）1:42</summary>
+    <dl class="ans">
+      <dt>スクールについて、いまのお気持ち</dt><dd>気になっているけれど、迷っている</dd>
+      <dt>スクールについて、気になっていること・ご相談したいこと</dt><dd>入会金、初期費用について。</dd>
+      <dt>当日、BUCKET LISTのお二人と森川に聞いてみたいこと</dt><dd>Keiさんが実際にやってみた感想など。</dd>
+    </dl>
+  </details>
+
+  <div class="card">
+    <div class="card-h"><span class="num">1-3</span><h3>参加予定の方が、これまでの質問欄・トークに書いていたこと</h3></div>
+    <p class="lead">アンケート以外の場所（4本目のあとの質問欄・予約時の質問・トーク）で、参加予定の方12人が書いていた内容です。</p>
+    <ul class="qs">
+      <li><span class="q">入会金・スクール代・初期費用はいくらか</span><span class="tag src">11人</span></li>
+      <li><span class="q">入会したあとに、追加でかかるお金はあるか</span><span class="tag src">2人</span></li>
+      <li><span class="q">辞めたいときは、どういう流れになるか</span></li>
+      <li><span class="q">初月の利益は平均どのくらいか。利益が出ない人はどんな人か</span></li>
+      <li><span class="q">初心者でも、仕事と両立しながら学べるか。どんなスキルを身につけて収益につなげるのか。成果が出るまでの期間とサポート体制</span></li>
+      <li><span class="q">費用が気になる／家族にまだ話していない／時間がとれるか不安</span></li>
+      <li><span class="q">本業にしている人は、在庫をどう保管しているか</span></li>
+      <li><span class="q">子どもが4人いて、ただでさえ物が多い。在庫を抱えるのはどうなるか</span></li>
+      <li><span class="q">チームやグループでの女性の集まりが苦手。集まりは東京が多いのか。手厚いサポートや集まりがないと続けられない内容なのか</span></li>
+      <li><span class="q">（ご夫婦で動画を見ている方）個別トレーニングは2人で聞けるか、1対1のほうがよいか</span></li>
+    </ul>
+    <p class="sublabel">感想欄に書かれていた不安（参加予定の方）</p>
+    <ul class="qs">
+      <li><span class="q">メルカリに売るほどの物がない。メルカリで稼げるのか不安</span></li>
+      <li><span class="q">本当に時間がない中での、時間の作り方を知りたい。サポートや福利厚生が素敵すぎて、使いこなせるか</span></li>
+      <li><span class="q">初期投資額がまだ出ていないので不安</span></li>
+      <li><span class="q">トラブルに発展したらどうしようと思って、一歩を踏み出せなかった</span></li>
+      <li><span class="q">ある程度の資金がないと始められないこと、仕入れ額を取り戻すにはそれなりの個数を売る必要があることが分かった</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 2 ============ -->
+<section id="part2">
+  <h2>2. これまでの質問から「当日出そうな質問」</h2>
+  <p class="lead">10/1〜11/20に、質問欄（4本目のあとの「いま気になっていること」・予約時の「当日いちばん聞きたいこと」・意向アンケート）とトークに書かれた内容を、93人分まとめて10の項目に分けました。1人が複数の項目に入ります。各項目の質問には、1〜3本目の感想欄に疑問の形で書かれていたものも加えています。</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>項目</th><th>書いた人</th><th>うち参加予定</th><th>主に答える人（目安）</th></tr></thead>
+      <tbody>
+        <tr><td><a href="#c1">費用</a></td><td class="n">80人</td><td class="n">11人</td><td>森川</td></tr>
+        <tr><td><a href="#c2">自分にできるか</a></td><td class="n">28人</td><td class="n">4人</td><td>森川・お二人</td></tr>
+        <tr><td><a href="#c3">元が取れるか・利益</a></td><td class="n">22人</td><td class="n">2人</td><td>森川</td></tr>
+        <tr><td><a href="#c4">時間・両立</a></td><td class="n">17人</td><td class="n">4人</td><td>お二人・森川</td></tr>
+        <tr><td><a href="#c5">サポート・集まり・面談の形</a></td><td class="n">14人</td><td class="n">5人</td><td>森川</td></tr>
+        <tr><td><a href="#c6">仕組み（仕入れ・在庫・出品）</a></td><td class="n">11人</td><td class="n">2人</td><td>森川</td></tr>
+        <tr><td><a href="#c7">うまくいかない人・実態</a></td><td class="n">11人</td><td class="n">1人</td><td>森川</td></tr>
+        <tr><td><a href="#c8">スクールで何を学ぶか</a></td><td class="n">9人</td><td class="n">1人</td><td>森川</td></tr>
+        <tr><td><a href="#c9">税金・副業禁止</a></td><td class="n">7人</td><td class="n">0人</td><td>森川</td></tr>
+        <tr><td><a href="#c10">入会後・始める時期・やめ方</a></td><td class="n">6人</td><td class="n">2人</td><td>森川</td></tr>
+        <tr><td><a href="#c11">BUCKET LISTのお二人へ</a></td><td class="n">—</td><td class="n">—</td><td>お二人</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card to-mk" id="c1">
+    <div class="card-h"><span class="num">2-1</span><h3>費用</h3><span class="count">80人<em>（参加予定 11人）</em></span><span class="who">森川</span></div>
+    <ol class="qs">
+      <li><span class="q">入会金（スクール代）はいくらですか？</span><span class="tag on">参加予定</span></li>
+      <li><span class="q">分割はできますか？ 分割の手数料はいくらですか？</span></li>
+      <li><span class="q">入会したあとに、追加でかかるお金はありますか？</span><span class="tag on">参加予定</span></li>
+      <li><span class="q">入会金とは別に、仕入れのお金はいくら必要ですか？</span><span class="tag on">参加予定</span></li>
+      <li><span class="q">まとまった貯金がなくても始められますか？ 貯金を崩さずに始める方法はありますか？</span></li>
+      <li><span class="q">「費用は物販の利益から払っていける」とは、どういう仕組みですか？</span><span class="tag on">参加予定</span></li>
+      <li><span class="q">クレジットカードを持っていなくても申し込めますか？</span></li>
+      <li><span class="q">もう少し手軽に始められるコースはありますか？</span></li>
+      <li><span class="q">BUCKET LISTの特典は、どんな内容ですか？</span></li>
+    </ol>
+    <div class="voices">
+      <p class="vl">実際の声</p>
+      <p>「こういったスクールを調べては何度も断念する理由が、やはり入会金などのスクール費用です」</p>
+      <p>「主人のお金ではなく、私の資金でやりたいと思っていますが、そんなにないので、本当に始められるか不安です」</p>
+      <p>「入会金に引っかかっていますが、サポートが厚い理由なのかなと考えています」<span class="tag on">参加予定</span></p>
+    </div>
+  </div>
+
+  <div class="card" id="c2">
+    <div class="card-h"><span class="num">2-2</span><h3>自分にできるか</h3><span class="count">28人<em>（参加予定 4人）</em></span><span class="who">森川</span><span class="who bl">お二人</span></div>
+    <ol class="qs">
+      <li><span class="q">物販もメルカリも初めてですが、できますか？</span><span class="tag on">参加予定</span></li>
+      <li><span class="q">メルカリで買い物もしたことがないのですが、大丈夫ですか？</span></li>
+      <li><span class="q">スマホだけでできますか？ パソコンやタブレットは必要ですか？</span></li>
+      <li><span class="q">機械が苦手でもできますか？</span></li>
+      <li><span class="q">50代・60代でもできますか？ 同じくらいの年齢の方はいますか？</span></li>
+      <li><span class="q">男性でも入れますか？</span></li>
+      <li><span class="q">飽きっぽい性格でも続けられますか？</span></li>
+    </ol>
+    <div class="voices">
+      <p class="vl">実際の声</p>
+      <p>「スマホやパソコンなど電子機器を使うのがあまり得意な方ではないので、やってみたい気持ちはあるが、こんな私でもできるだろうか、継続できるだろうか」</p>
+      <p>「熱しやすく冷めやすいのですが、今の状況を打破したくプログラムを受けたいと思っています」</p>
+    </div>
+  </div>
+
+  <div class="card to-mk" id="c3">
+    <div class="card-h"><span class="num">2-3</span><h3>元が取れるか・利益</h3><span class="count">22人<em>（参加予定 2人）</em></span><span class="who">森川</span></div>
+    <ol class="qs">
+      <li><span class="q">スクール代は、何か月くらいで取り戻せますか？ 副業でやっている人だとどうですか？</span><span class="tag on">参加予定</span></li>
+      <li><span class="q">初月の利益は平均どのくらいですか？ 2〜4か月目以降はどうですか？</span><span class="tag on">参加予定</span></li>
+      <li><span class="q">毎月いくら仕入れると、どのくらい利益が出ますか？ 売上のうち何割が利益になりますか？</span></li>
+      <li><span class="q">動画に出てきた利益は、手数料を引いたあとの金額ですか？</span></li>
+      <li><span class="q">本当に売れますか？ 流行が過ぎた服やブランド品にも買い手がつきますか？</span></li>
+      <li><span class="q">成果が出るまで、どのくらいかかりますか？</span><span class="tag on">参加予定</span></li>
+      <li><span class="q">今の生活スタイルで、どのくらい利益を出せそうですか？</span></li>
+    </ol>
+    <div class="voices">
+      <p class="vl">実際の声</p>
+      <p>「本当に1日数十分〜数時間の作業で、利益数万円になるほどコンスタントに売れるものなのだろうか」</p>
+      <p>「仕事と子育てをしながら、入会金分を0に出来る稼ぎが出来るか不安です」<span class="tag on">参加予定</span></p>
+    </div>
+  </div>
+
+  <div class="card to-bl" id="c4">
+    <div class="card-h"><span class="num">2-4</span><h3>時間・両立</h3><span class="count">17人<em>（参加予定 4人）</em></span><span class="who bl">お二人</span><span class="who">森川</span></div>
+    <ol class="qs">
+      <li><span class="q">フルタイムやパートの仕事と両立できますか？ 1日どのくらいの時間が必要ですか？</span><span class="tag on">参加予定</span></li>
+      <li><span class="q">毎日できない日があっても大丈夫ですか？</span></li>
+      <li><span class="q">子どもを寝かしつけたあとしか時間がなく、一緒に寝てしまう日もあります。それでもできますか？</span><span class="tag on">参加予定</span></li>
+      <li><span class="q">どんなスケジュールで進めればいいですか？</span></li>
+      <li><span class="q">時間がない中で、みなさんどうやって時間を作っていますか？</span><span class="tag on">参加予定</span></li>
+    </ol>
+    <div class="voices">
+      <p class="vl">実際の声</p>
+      <p>「今9-16時、週5でパートをしているので、なかなか時間が取れないのですが、収入をあげたくてやってみたいと考えています」</p>
+      <p>「本当に時間がないなか時間の作り方知りたいし、隙間時間でできるなんて魅力的」<span class="tag on">参加予定</span></p>
+    </div>
+  </div>
+
+  <div class="card to-mk" id="c5">
+    <div class="card-h"><span class="num">2-5</span><h3>サポート・集まり・面談の形</h3><span class="count">14人<em>（参加予定 5人）</em></span><span class="who">森川</span></div>
+    <ol class="qs">
+      <li><span class="q">サポートはいつまで受けられますか？</span><span class="tag on">参加予定</span></li>
+      <li><span class="q">イベントや集まりには、必ず参加しないといけませんか？</span></li>
+      <li><span class="q">集まりは東京が多いですか？ 地方に住んでいても大丈夫ですか？</span><span class="tag on">参加予定</span></li>
+      <li><span class="q">女性同士の集まりが苦手でも大丈夫ですか？</span><span class="tag on">参加予定</span></li>
+      <li><span class="q">パートナー制度とは何ですか？ パートナーと利益は分けるのですか？</span></li>
+      <li><span class="q">個別トレーニングは、会って話すのですか？ 夫婦2人で聞けますか？</span><span class="tag on">参加予定</span></li>
+      <li><span class="q">長いあいだ家に帰れないときは、どうしていますか？</span></li>
+    </ol>
+    <div class="voices">
+      <p class="vl">実際の声</p>
+      <p>「とっても魅力的で良いと思う反面、こんなに福利厚生や手厚いサポート、集まりなどがないと続けられない内容なのかな？とも思ってしまいました」<span class="tag on">参加予定</span></p>
+      <p>「来年出産を控えているので、毎回絶対参加とかだと厳しいな～と思いました」</p>
+    </div>
+  </div>
+
+  <div class="card to-mk" id="c6">
+    <div class="card-h"><span class="num">2-6</span><h3>仕組み（仕入れ・在庫・出品）</h3><span class="count">11人<em>（参加予定 2人）</em></span><span class="who">森川</span></div>
+    <ol class="qs">
+      <li><span class="q">仕入れのタイミングやノルマ、決まりはありますか？</span><span class="tag on">参加予定</span></li>
+      <li><span class="q">在庫を置く場所はどのくらい必要ですか？ 家が狭くても、物が多くても大丈夫ですか？</span><span class="tag on">参加予定</span></li>
+      <li><span class="q">本業でやっている人は、在庫をどう保管していますか？</span><span class="tag on">参加予定</span></li>
+      <li><span class="q">仕入れは毎回パックで届くのですか？ 自分で選べますか？</span></li>
+      <li><span class="q">売れ残ったらどうなりますか？ いくらで買い取ってもらえますか？</span></li>
+      <li><span class="q">売り切る期限はありますか？</span></li>
+      <li><span class="q">ラクマなどメルカリ以外でも売っていいですか？ 自分の家の不用品も売っていいですか？</span><span class="tag on">参加予定</span></li>
+      <li><span class="q">生徒さんが多いと、仕入れる物がなくなりませんか？ 新品だけを扱えますか？</span></li>
+      <li><span class="q">梱包や発送はどうしていますか？ 日中に郵便局へ行けなくてもできますか？</span></li>
+      <li><span class="q">偽物や壊れた物を売ってしまわないか心配です。ブランド品の真贋はどうしていますか？</span></li>
+    </ol>
+    <div class="voices">
+      <p class="vl">実際の声</p>
+      <p>「子供4人いてただでさえ物が多く悩んでいて、在庫を抱えるのはどうなるのかな？」<span class="tag on">参加予定</span></p>
+      <p>「育児中で郵送に行く時間を日中に取れないイメージなので、私にはできないと思ってしまう」</p>
+    </div>
+  </div>
+
+  <div class="card to-mk" id="c7">
+    <div class="card-h"><span class="num">2-7</span><h3>うまくいかない人・実態</h3><span class="count">11人<em>（参加予定 1人）</em></span><span class="who">森川</span></div>
+    <ol class="qs">
+      <li><span class="q">うまくいかずに、やらなくなってしまう人はどのくらいいますか？</span></li>
+      <li><span class="q">利益が出ない人は、どんな人ですか？ 売れる人と何が違いますか？</span><span class="tag on">参加予定</span></li>
+      <li><span class="q">本業の人・副業の人はそれぞれどのくらいいて、どのくらい利益を出していますか？</span></li>
+      <li><span class="q">受講した人のうち、どのくらいの人が利益を出せていますか？</span></li>
+      <li><span class="q">できている人だけでなく、生徒さん全体のリアルを知りたいです</span></li>
+      <li><span class="q">正直、信用していいのか迷っています。会社はどこで売上を出しているのですか？</span></li>
+      <li><span class="q">家族にまだ話していない／家族が怪しんでいる。みなさんどうしていましたか？</span><span class="tag on">参加予定</span></li>
+    </ol>
+    <div class="voices">
+      <p class="vl">実際の声</p>
+      <p>「初月はわかったが、2.3.4ヶ月目とかそれ以降の利益が知りたいし、できてる人じゃなくて上手くできてない人はいないのか？ 生徒さん全体のリアルを知りたい」</p>
+      <p>「これが本当だったら凄い主婦にも期待の星！ ただ主人がやはり怪しんでいます」</p>
+    </div>
+  </div>
+
+  <div class="card to-mk" id="c8">
+    <div class="card-h"><span class="num">2-8</span><h3>スクールで何を学ぶか</h3><span class="count">9人<em>（参加予定 1人）</em></span><span class="who">森川</span></div>
+    <ol class="qs">
+      <li><span class="q">まず何から始めればいいですか？</span></li>
+      <li><span class="q">どんなスキルを身につけて、収益につなげるのですか？</span><span class="tag on">参加予定</span></li>
+      <li><span class="q">なぜ「スクール」なのですか？ 仕入れ代とは別に、初期費用がかかるのはなぜですか？</span></li>
+      <li><span class="q">メルカリでの売り方を習う、ということですか？</span></li>
+      <li><span class="q">以前、自分でアパレルをメルカリで売っていたときと、何が違いますか？</span></li>
+      <li><span class="q">出品に時間をかけすぎないコツや、自分に合った効率のよいやり方を知りたいです</span></li>
+      <li><span class="q">AIツールで自動化できる部分はありますか？</span></li>
+    </ol>
+  </div>
+
+  <div class="card to-mk" id="c9">
+    <div class="card-h"><span class="num">2-9</span><h3>税金・副業禁止</h3><span class="count">7人<em>（参加予定 0人）</em></span><span class="who">森川</span></div>
+    <ol class="qs">
+      <li><span class="q">確定申告は必要ですか？ いくらから必要ですか？ 税金としてどのくらい残しておけばいいですか？</span></li>
+      <li><span class="q">利益は本当に非課税なのですか？</span></li>
+      <li><span class="q">扶養はどうなりますか？</span></li>
+      <li><span class="q">副業禁止の会社でもできますか？ 職場に知られずにできますか？</span></li>
+      <li><span class="q">法律の面で、大丈夫ですか？</span></li>
+    </ol>
+    <div class="voices">
+      <p class="vl">実際の声</p>
+      <p>「今まで正社員だけだったので確定申告を自分でやった事がないのと、職場には知られる事なくやれるのかも気になります」</p>
+    </div>
+  </div>
+
+  <div class="card to-mk" id="c10">
+    <div class="card-h"><span class="num">2-10</span><h3>入会後・始める時期・やめ方</h3><span class="count">6人<em>（参加予定 2人）</em></span><span class="who">森川</span></div>
+    <ol class="qs">
+      <li><span class="q">辞めたいときは、どうなりますか？</span><span class="tag on">参加予定</span></li>
+      <li><span class="q">入会したあとに、追加でかかるお金はありますか？</span><span class="tag on">参加予定</span></li>
+      <li><span class="q">すぐには始められない事情（入院中・海外に住んでいる・出産を控えているなど）があります。その場合はどうなりますか？</span></li>
+    </ol>
+  </div>
+
+  <div class="card to-bl" id="c11">
+    <div class="card-h"><span class="num">2-11</span><h3>BUCKET LISTのお二人へ</h3><span class="who bl">お二人</span></div>
+    <p class="lead">お二人あての直接の質問は1件でした。ほかは「お二人の紹介だから見た」「ずっと見ているから信頼している」という声が多く、2〜4つ目はそうした声からの読み取りです。</p>
+    <ol class="qs">
+      <li><span class="q">Keiさんが実際にやってみて、どうでしたか？</span><span class="tag on">参加予定</span></li>
+      <li><span class="q">お二人のように場所を選ばずに働けるようになりたい。どんな働き方をしていますか？</span><span class="tag on">参加予定</span><span class="tag read">読み取り</span></li>
+      <li><span class="q">お二人は、なぜこのスクールを紹介しているのですか？</span><span class="tag read">読み取り</span></li>
+      <li><span class="q">忙しい中で、どうやって時間をやりくりしていますか？</span><span class="tag read">読み取り</span></li>
+    </ol>
+    <div class="voices">
+      <p class="vl">実際の声</p>
+      <p>「昔から好きだったバケットリストさんの紹介なので、とても信頼できます」</p>
+      <p>「リョースケさんけいちゃんのYouTubeを何年も見ていて紹介していたので、変な疑いはないんです！」</p>
+      <p>「YouTubeでずっと見てるお二人なので、信用できるかなと思っています」</p>
+      <p>「率直に信用をしていいのか…」</p>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <p><b>出典と数え方</b></p>
+  <ul>
+    <li>4本目のあとの質問欄「スクールについて、いま気になっていること」82件</li>
+    <li>予約時の質問「当日、いちばん聞きたいこと」56件</li>
+    <li>11/21 意向アンケート 3件／参加予定の方のトーク 5件</li>
+    <li>補足として、1〜3本目とスクール動画の感想欄から、疑問の形で書かれたもの</li>
+    <li>期間は10/1〜11/20。運営のテスト回答は除いています。人数は、その項目にあたる内容を書いた人の数です。</li>
+  </ul>
+</footer>
+
+</div>
+</body>
+</html>
